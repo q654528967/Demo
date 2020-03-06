@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<title>动态删除表格</title>
+<meta charset="utf-8" />
+<style>
+	table{width:600px; border-collapse:collapse;
+		text-align:center;
+	}
+	td,th{border:1px solid #ccc}
+</style>
+
+</head>
+<body>
+	<div id="data">
+    <table>
+      <thead>
+        <tr>
+          <th>姓名</th>
+          <th>工资</th>
+          <th>年龄</th>
+          <th>删除</th>
+        </tr>
+      </thead>
+    </table>
+  </div>
+  <script>
+	var json=[
+    {"ename":"Tom", "salary":11000, "age":25},
+    {"ename":"John", "salary":13000, "age":28},
+    {"ename":"Mary", "salary":12000, "age":25}
+  ];
+	var tbody=document.createElement("tbody");
+	var table=document.getElementById("data").firstElementChild;
+	for(var emp of json){
+		var tr=tbody.insertRow();
+		for(var key in emp){
+		var td=tr.insertCell();
+		td.innerHTML=emp[key];
+		}
+		var ltd=tr.insertCell();
+		ltd.innerHTML=`<button>x</button>`;
+	};
+	table.appendChild(tbody);
+	var btns=document.getElementsByTagName("button");
+	for(var btn of btns){
+		btn.onclick=function(){
+			var btn=this;
+			var tr=btn.parentNode.parentNode;
+			var name=tr.firstElementChild.innerHTML;
+			console.log(name);
+			var bool=confirm(`是否删除${name}`);
+			if(bool==true){
+			table.deleteRow(tr.rowIndex);
+			}
+		}
+	}
+  </script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+
+<script>
+class Animal {
+	constructor(name){
+		this.name=name;
+	}
+	set name(name){
+		this._name=name;
+	}
+	get name(){
+		return this._name;
+	}
+	walk(){
+		console.log(this.name+"正在走路")
+	}
+}
+class Cat extends Animal{
+	constructor(name,color){
+		super(name);
+		this.color=color;
+	}
+	set color(color){
+		this._color=color;
+	}
+	get color(){
+		return this._color;
+			}
+	mew(){
+		console.log(this.color+'色的'+this.name+'正在叫')
+	}
+	walk(){
+		super.walk();
+		console.log('、静悄悄的')
+	}
+}
+var cat1=new Cat('小猫','白');
+cat1.walk();
+cat1.mew();
+function fn(abc){
+	console.log(arguments);
+}
+fn('aaa',1,{d:9})
+function fun(arr,...arrsg){
+	console.log(arrsg);
+	for(let i=0;i<arrsg.length;i++){
+		if(arr.indexOf(arrsg[i])==-1){
+			return '没有'
+		}else{
+			return '对的'
+		}
+	}
+}
+fun('abc','a','b',{a:9});
+console.log(fun('abc','a','b'));
+</script>
+</body>
+</html>

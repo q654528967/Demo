@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+function cale(name,...arr){
+  var sum=arr.reduce((prev,elem)=>prev+elem,0);
+  console.log(`${name}的工资为${sum}`)
+}
+cale("lilei",10000,5000,200);
+cale("hanmeimei",3444,5555,554)
+</script>
+</body>
+</html>

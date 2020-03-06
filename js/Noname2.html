@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>遍历节点树</title>
+		<meta charset="utf-8"/>
+		
+	</head>
+	<body>
+		<span>Hello World !</span>
+		<ul id="nav">
+			<li>电影</li>
+			<li>综艺
+				<ul>
+					<li>{{uname}}</li>
+					<li>爸爸</li>
+					<li>{{score}}</li>
+				</ul>
+			</li>
+			<li>{{uname}}</li>
+		</ul>	
+<script>
+var uname="dingding";
+var score=3000;
+var body=document.body;
+function fun(parent){
+	if(parent.innerHTML=="{{uname}}"){
+	parent.innerHTML=uname;
+	}else if(parent.innerHTML=="{{score}}"){
+	parent.innerHTML=score;
+	}
+	for(var emp of parent.children){
+		fun(emp)
+	}
+}
+fun(body);
+</script>
+	</body>
+</html>

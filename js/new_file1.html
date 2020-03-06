@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			div{
+				width:200px;
+				height:200px;
+				border-radius:50%;
+				background: #f00;
+				text-align: center;
+				line-height: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="d1">示例文字</div>
+		<button type="button" onclick="xro()">x轴旋转</button><button type="button">y轴旋转</button><button type="button">z轴旋转</button>
+		<script type="text/javascript">
+			var x=document.getElementById("d1");
+			var xr;
+			function xro(){
+				var n=0;
+				clearInterval(xr);
+			 xr=setInterval("startx()",10);
+				
+			}
+			function startx(){
+				var n=0;
+				function aadc(){
+					n++;
+					x.style.transform=`rotateX(${n}deg)`,
+					console.log(n)
+					if(n==180){
+						clearInterval(xr);
+						n=0
+					}
+					aadc();
+				}
+				
+			}
+		/* 	var n,rotINT,rotXINT,rotYINT,rotZINT;
+			var div=document.getElementById("d1");
+			 
+			function rotateX()
+			{
+			    n=0;
+			    clearInterval(rotXINT);
+			    rotXINT=setInterval("startXRotate()",10);
+			}
+			function startXRotate()
+			{
+			    n=n+1;
+			    div.style.transform="rotateX(" + n + "deg)";
+			    if (n==180)
+			    {
+			        clearInterval(rotXINT);
+				n=0;
+			    }
+			} */
+		</script>
+	</body>
+</html>

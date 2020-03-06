@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>  
+"use strict"
+var eric={
+  ename:"hh",
+  salary:123
+}
+Object.defineProperty(eric,"_eage",{
+  value:23,
+  writable:true,
+  enumerable:false,
+  configurable:false
+})
+Object.defineProperty(eric,"eage",{
+get:function(){return this._eage},
+set:function(value){
+  if(18<=value&&value<=65){
+    this.eage=value
+  }else{
+    throw new Error("nianji")
+  }
+},
+enumerable:true,
+configurable:false
+})
+console.log(eric.eage);
+// eric.eage=15;
+console.log(eric);
+Object.defineProperty(eric,"bothday",{
+  value:1993
+});
+delete eric.bothday;
+</script>
+</body>
+</html>

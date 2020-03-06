@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+"use strict"
+var arr=["凉凉","然然","东东","叨扰","蕾蕾"];
+/* for(var key in arr){
+  console.log(arr[key]+"到!")
+} */
+// arr.forEach(elem=>alert(elem+"到!"));
+var num=[1,2,3,4,5];
+// num.forEach(elem=>alert(elem*=2));
+num.forEach(elem=>console.log(elem*=2));
+console.log(num);
+var nums=[{x:1},{x:2},{x:3},{x:4}];
+nums.forEach(elem=>elem.x*=2);
+console.log(nums);
+var num3=num.map(elem=>elem*=2);
+console.log(num);
+console.log(num3)
+</script>
+</body>
+</html>

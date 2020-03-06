@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<script>
+    var msg=prompt("请输入消息内容");
+    var i=msg.search(/([我卧]|wo)\s*([草槽艹]|cao)/i);
+    if (i!==-1){
+        alert("包含敏感词！")
+    }else{
+        document.write(`李然说：${msg}`)
+    }
+</script>
+</body>
+</html>

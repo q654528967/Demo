@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  function student(sname,sage){
+    this.sname=sname;
+    this.sage=sage;
+    }
+  student.prototype.ints=function(){
+    console.log(`我是${this.sname}，我今年${this.sage}`)
+  }
+
+  var fun=new student("lilei","10");
+  var jj=new student("jj","11");
+
+  fun.ints();
+  jj.ints();
+  console.log(fun);
+  console.log(jj);
+</script>
+</body>
+</html>

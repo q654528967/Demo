@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  function play(){
+    if(arguments.length==0){
+      console.log("手机支付")
+    }else if(arguments.length==1){
+      console.log(`现金收款${arguments[0]}元`)
+    }else{
+      console.log(`从卡号${arguments[0]}扣款${arguments[1]}元`)
+    }
+  }
+  play();
+  play(100);
+  play("123456","7890");
+</script>
+</body>
+</html>

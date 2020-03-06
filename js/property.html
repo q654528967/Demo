@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  "use strict"
+var eric={
+  id:1,
+  name:"jj",
+  salary:123
+}
+/* Object.defineProperty(eric,"id",{
+  writable:false,
+  configurable:false
+})
+Object.defineProperty(eric,"salary",{
+  enumerable:false,
+  configurable:false
+})
+Object.defineProperty(eric,"name",{
+  configurable:false
+}) */
+Object.defineProperties(eric,{
+  id:{
+    writable:false,
+    configurable:false
+  },
+  name:{configurable:false},
+  salary:{enumerable:false,
+  configurable:false
+  }
+})
+// delete eric.name;
+for(var key in eric){
+  console.log(key,eric[key])
+}
+console.log(eric)
+</script>
+</body>
+</html>

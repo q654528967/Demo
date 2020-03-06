@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+  var app={
+    uname:"lilei",
+    age:"11",
+    fun:function(){
+      console.log(this.uname,this.age)
+    }
+  }
+  function fun(apd){
+    var newapp={};
+    for(var key in apd){
+      newapp[key]=apd[key];
+    }
+    return newapp
+  }
+  var add=fun(app);
+  add.age++;
+  app.age--;
+  add.fun();
+</script>
+</body>
+</html>

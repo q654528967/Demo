@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<script>
+function fun(){
+  var total=1000;
+  return function(x){
+    total=total-x;
+    console.log(total)
+  }
+}
+var child=fun();
+console.log(child);
+total=0;
+child(100);
+console.log(child);
+child(100);
+console.log(child);
+</script>
+</body>
+</html>
