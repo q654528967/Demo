@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+ <img :src=`image/${url}` alt=""><br>
+ <label v-for="ar of arrs"><input type="radio" name="uname" :value="ar" v-model="url"><img :src="'image/'+ar"></label> 
+</div>
+<script>
+var vm=new Vue({
+  el:"#app",
+  data:{
+    url:"tan.png",
+    arrs:["mm.png","true.png","yhm.png"]
+  }
+})
+</script>
+</body>
+</html>

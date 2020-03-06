@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<style>
+		.list-enter,.list-leave-to{
+			opacity: 0;
+			transform: translateY(30px);
+		}
+		.list-enter-active,.list-leave-active{
+			transition: all 1s linear
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button @click="addShowItem()">添加元素</button>
+		<br>
+			
+		<br>
+		<transition-group name="list" tag="p">
+			<li v-for="item in list" :key="item">
+				<div>
+					<p>{{item}}</p>
+					<p v-show="pShow">123</p>
+				</div>
+			</li>
+		</transition-group>
+	</div>
+
+<script>
+
+var vm= new Vue({
+  el: '#app',
+  data: {
+    list:[0],
+    pShow:false,
+  },
+  filters:{
+  	
+  },
+  methods:{
+  	addShowItem(){
+  		this.list.push(this.list.length)
+  		this.pShow=!this.pShow
+  	}
+  }
+})
+</script>
+</body>
+</html>

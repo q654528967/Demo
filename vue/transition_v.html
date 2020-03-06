@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<style>
+		.list-move{
+			transition:transform 1s;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button @click="orderByRandom()">随机顺序</button>
+		<br>
+		<transition-group name="list" tag="ul">
+			<li v-for="item in list" :key="item">
+				{{item}}
+			</li>
+		</transition-group>
+	</div>
+<script>
+
+var vm= new Vue({
+  el: '#app',
+  data: {
+    list:[0,1,2,3,4]
+  },
+  filters:{
+  	
+  },
+  methods:{
+  	orderByRandom(){
+  		let tmp=[]
+  		for(let i=1;i<this.list.length;i++){
+  			let num=Math.floor(Math.random()*(this.list.length-0.001))
+  			let index=tmp.indexOf(num)
+  			while (index!==-1){
+  				num=Math.floor(Math.random()*(this.list.length-0.001))
+  				index=tmp.indexOf(num)
+  			}
+  			tmp.push(num)
+  		}
+  		this.list=tmp
+  	}
+  }
+})
+</script>
+</body>
+</html>

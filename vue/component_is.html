@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.tabs{
+			margin: 0;
+			padding: 0;
+			list-style: none;
+		}
+		.per-tab{
+			display: inline-block;
+			width: 120px;
+			line-height: 32px;
+			border-left: 1px solid #ccc;
+		}
+		.per-tab:last-child{
+			border-right: 1px solid #ccc;
+		}
+		.tab-content{
+			height: 240px;
+			border:1px solid #ccc;
+		}
+	</style>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<ul class="tabs">
+			<li class="per-tab" @click="toggleView('home')">home</li>
+			<li class="per-tab" @click="toggleView('about')">about</li>
+		</ul>
+			<component :is="view"></component>
+	</div>
+<script>
+let Home={
+	template:`<p style="color:#787878;">hello home</p>`
+}
+let About={
+	template:'<p>about</p>'
+}
+var vm= new Vue({
+  el: '#app',
+  data: {
+    view:'home'
+  },
+  methods:{
+  	toggleView(view){
+  		this.view=view
+  	}
+  },
+  filters:{
+  	
+  },
+  components:{Home,About}
+})
+</script>
+</body>
+</html>

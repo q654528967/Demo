@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		
+    <button @click="handleClick">f</button>
+    
+	</div>
+<script>
+var app2 = new Vue({
+  el: '#app',
+  data: {
+    msg:{
+      sender:'jack',
+      receiver:'rose'
+    }
+  },
+  methods:{
+  	logLine(){
+      console.log('---分割线---')
+    },
+  	logMsg(newValue,oldValue){
+      console.log(newValue)
+      console.log(oldValue)
+    },
+    handleClick(){
+      this.msg.receiver=Math.random()*10
+    }
+  },
+  watch:{
+    msg:{
+      handler:'logMsg',
+      deep:true,
+      immediate:true,
+      'msg.sender':['logLine','logMsg']
+    }
+  }
+})
+</script>
+</body>
+</html>

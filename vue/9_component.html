@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+<script>
+Vue.component("my-counter",{
+  template:"#tplCounter",
+  //data:function(){
+  data(){
+    return {//相当于以前的data
+      n:1
+    }
+  },
+  methods:{
+    change(i){ this.n+=i; }
+  }
+})
+</script>
+</head>
+<body>
+<div id="app">
+  <my-counter></my-counter>
+  <my-counter></my-counter>
+  <my-counter></my-counter>
+</div>
+<!--<div id="tplCounter" style="display:none">-->
+<template id="tplCounter"><!--HTML5中新增-->
+  <div>
+    <!--Template-->
+    <button @click="change(-1)">-</button><span>{{n}}</span><button @click="change(+1)">+</button>
+  </div>
+</template>
+<script>
+var vm=new Vue({
+  el:"#app",
+  data:{
+    
+  }
+})
+</script>
+</body>
+</html>

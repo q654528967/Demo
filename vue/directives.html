@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<h1 v-some.upper>{{title}}</h1>
+		<h1 v-some.lower>{{title}}</h1>
+		<h1 v-style="style">{{title}}</h1>
+		<button @click='handleStyle'>修改v-style</button>
+	</div>
+<script>
+
+var vm= new Vue({
+  el: '#app',
+  data: {
+    title:'test for directives',
+    style:{
+    	fontStyle:'italic'
+    }
+  },
+  methods:{
+  	handleStyle(){
+  		console.log('btn')
+  		this.$set(this.style,'color','#ababab')
+  		this.$set(this.style,'transform','rotateX(45deg)')
+  	}
+  },
+  directives:{
+  	style:{
+  		bind(el,binding,vnode){
+  			console.log('%c---bind参数:el,binding,vnode------','font-size:18px')
+  			console.log('%o\n\n%o\n\n%o',el,binding,vnode)
+  			let styles=binding.value
+  			Object.keys(styles).forEach(key=>el.style[key]=styles[key])
+  		},
+  		update(el,binding,vnode,oldVnode){
+  			console.log('%c---updata参数:el,binding,vnode,oldVnode---','font-size:18px')
+  			console.log('%0\n\n%o\n\n%o\n\n%o',el,binding,vnode,oldVnode)
+  			let styles=binding.value
+  			Object.keys(styles).forEach(key=>el.style[key]=styles[key])
+  		}
+  	},
+  	some(el,binding){
+  		let text=el.innerText
+  		let modifiers=binding.modifiers
+  		if(modifiers.upper){
+  			el.innerText=text.toUpperCase()
+  		}
+  		if(modifiers.lower){
+  			el.innerText=text.toLowerCase()
+  		}
+  	}
+  },
+  filters:{
+  	
+  }
+})
+</script>
+</body>
+</html>

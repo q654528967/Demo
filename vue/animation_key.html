@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<style type="text/css">
+		.v-enter,.v-leave-to{
+			opacity: 0;
+		}
+		.v-enter-active,.v-leave-active{
+			transition: opacity 1s
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button @click="isMaster=!isMaster">切换身份</button>
+		<transition mode="in-out">
+			<p :key="isMaster? 'master' : 'other'">{{isMaster? '大家好' : '东家好'}}</p>
+		</transition>
+	</div>
+<script>
+
+var vm= new Vue({
+  el: '#app',
+  data: {
+		isMaster:true    
+  },
+  filters:{
+  	
+  }
+})
+</script>
+</body>
+</html>

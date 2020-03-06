@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+<script>
+  Vue.filter("sexFilter",function(value,lang){
+    //value: 1  0 ;  lang: cn  en
+    if(lang=="cn"){
+      return value==1?"男":"女"
+    }else{
+      return value==1?"Male":"Female"
+    }
+  });
+  Vue.filter("sexIcon",function(value){
+    return value=="男"||value=="Male"?value+"♂":value+"♀"
+  })
+  Vue.filter("dateFilter",function(value){
+    //value: ms
+    return new Date(value).toLocaleString()
+  })
+</script>
+</head>
+<body>
+<div id="app">
+ <h1>性别:{{sex | sexFilter("en") | sexIcon}}</h1>
+ <h1>下单时间: {{orderDate | dateFilter}}</h1>
+</div>
+<script>
+var vm=new Vue({
+  el:"#app",
+  data:{ sex:0, orderDate:1550160000000 }
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<button @click.ctrl="logWithCtrl">click</button>
+	</div>
+<script>
+var app2 = new Vue({
+  el: '#app',
+  data: {
+    
+  },
+  methods:{
+  	logSingle(e){
+  		if(!e.ctrlKey){
+  			console.log('----分割线-----')
+  			console.log('$e.ctrlKey:',e.ctrlKey)
+  			console.log('单身狗')
+  		}else{
+  			console.log('进步')
+  		}
+  	},
+  	logWithCtrl(e){
+  		console.log('---分割')
+  		console.log('$e.ctrlKey:',e.ctrlKey)
+  		console.log('按住')
+  	}
+  }
+})
+</script>
+</body>
+</html>

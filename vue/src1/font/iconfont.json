@@ -1,0 +1,72 @@
+{
+  "id": "1547711",
+  "name": "cc",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8776878",
+      "name": "download",
+      "font_class": "icon-test",
+      "unicode": "e640",
+      "unicode_decimal": 58944
+    },
+    {
+      "icon_id": "8776879",
+      "name": "play",
+      "font_class": "icon-test1",
+      "unicode": "e641",
+      "unicode_decimal": 58945
+    },
+    {
+      "icon_id": "8777372",
+      "name": "refresh",
+      "font_class": "icon-test2",
+      "unicode": "e650",
+      "unicode_decimal": 58960
+    },
+    {
+      "icon_id": "8777387",
+      "name": "close_filled",
+      "font_class": "icon-test3",
+      "unicode": "e651",
+      "unicode_decimal": 58961
+    },
+    {
+      "icon_id": "8777388",
+      "name": "check",
+      "font_class": "icon-test4",
+      "unicode": "e652",
+      "unicode_decimal": 58962
+    },
+    {
+      "icon_id": "12115567",
+      "name": "宇宙飞船",
+      "font_class": "yuzhoufeichuan",
+      "unicode": "e603",
+      "unicode_decimal": 58883
+    },
+    {
+      "icon_id": "12115568",
+      "name": "宇航员",
+      "font_class": "yuhangyuan",
+      "unicode": "e604",
+      "unicode_decimal": 58884
+    },
+    {
+      "icon_id": "12115569",
+      "name": "外星球",
+      "font_class": "waixingqiu",
+      "unicode": "e605",
+      "unicode_decimal": 58885
+    },
+    {
+      "icon_id": "12115571",
+      "name": "宇航旗",
+      "font_class": "yuhangqi",
+      "unicode": "e606",
+      "unicode_decimal": 58886
+    }
+  ]
+}

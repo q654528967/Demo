@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<easy-title></easy-title>
+		<easy-wish></easy-wish>
+		<easy-motto></easy-motto>
+	</div>
+<script>
+let EasyTitle={
+	name:'EasyTitle',
+	template:'<h1>1</h1>'
+}
+let EasyWish={
+	name:'EasyWish',
+	template:'<div><p>2</p></div>',
+}
+let EasyMotto={
+	name:'EasyMotto',
+	template:`<div>
+		<p style="color:#000;" v-for="(a,b) of [1,2,3]" :key="b">{{a}}</p>
+	</div>`
+}
+var vm= new Vue({
+  el: '#app',
+  data: {
+    
+  },
+  filters:{
+  	
+  },
+  components:{EasyTitle,EasyWish,EasyMotto}
+})
+</script>
+</body>
+</html>

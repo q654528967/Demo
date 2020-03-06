@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		#app{
+			color:#2c3e50;
+			font-family: Roboto,sans-serif;
+		}
+		.label{
+			display: inline-block;
+			min-width: 160px;
+		}
+	</style>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<h1>{{title}}</h1>
+		<p><strong class="label">Text:</strong>{{text}}</p>	
+		<p><strong class="label">Plus Text:</strong>{{plusText}}</p>	
+		<p><strong class="label">Upper Text:</strong>{{text | supplyUpper}}</p>	
+		<button @click='toggleText'>切换文本</button>
+	</div>
+<script>
+let mixin={
+	data(){
+		return {
+			title:'test for mixin'
+		}
+	},
+	mounted(){
+		console.log('mixin mounted')
+	},
+	methods:{
+		toggleText(){
+			this.text='mixin text'
+		}
+	},
+	computed:{
+		plusText(){
+			return '+ '+this.text + ' +'
+		}
+	},
+	filters:{
+		supplyUpper:(value)=>value.toUpperCase()
+	},
+	watch:{
+		text(value){
+			console.log('mixin text:' +value)
+		}
+	}
+}
+var vm= new Vue({
+  el: '#app',
+  mixins:[mixin],
+  data(){
+    return {
+    	title:'A Title',
+    text:'which one?'
+  }
+  },
+  mounted(){
+  	console.log('instance mounted')
+  },
+  methods:{
+  	toggleText(){
+  		this.text="instance text"
+  	}
+  },
+  filters:{
+  	
+  },
+  watch:{
+  	text(value){
+  		console.log('instance text' + value)
+  	}
+  }
+})
+</script>
+</body>
+</html>

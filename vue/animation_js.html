@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<button @click="isHidden=!isHidden">{{isHidden?'显示':'隐藏'}}</button>
+		<transition :before-enter="handleBeforEnter" :enter="handleEnter" :after-enter="handleAfterEnter" :enter-cancelled="handleEnterCancelled" :before-leave="handleBeforeLeave" :leave="handleLeave" :after-leave="handleAfterLeave" :leave-cancelled="handleLeaveCancelled"></transition>
+	</div>
+<script>
+
+var vm= new Vue({
+  el: '#app',
+  data: {
+    isHidden:true
+  },
+  filters:{
+  	
+  },
+  methods:{
+  	handleBeforEnter(el){},
+  	handleEnter(el,done){}
+  }
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	<style>
+		.height-block{
+			max-height: 0;
+			overflow: hidden;
+			position: absolute;
+		}
+		.inline-block{
+			display: inline-block;
+		}
+		.rotate-enter-active{
+			animation: selfRotateIn 1s;
+		}
+		.rotate-leave-active{
+			animation: selfRotateOut 1s;
+		}
+		@keyframes selfRotateIn{
+			0%{
+				/*opacity: 0;
+				transform: rotateY(-180deg);*/
+				max-height: 0;
+			}
+			100%{
+				/*opacity: 1;
+				transform: rotateY(0deg)*/
+				max-height: 100%
+			}
+		}
+		@keyframes selfRotateOut{
+			0%{
+				opacity: 1;
+				transform: rotateY(0deg)
+			}
+			100%{
+				opacity: 0;
+				transform: rotateY(180deg)
+			}
+		}
+		.custom-appear-active{
+  		color: #fff;
+  		background: #fff;
+ 			transition: all 1s ease;
+ 		}
+ 		.custom-appear{
+  		font-size: 40px;
+  		color: #0f0;
+ 			background: #0F0;
+ 		}
+ 		.custom-appear-to{
+  		color: #00f;
+  		background: #00f;
+ 		}
+	</style>
+</head>
+<body>
+	<div id="app">
+		<button @click="isHidden=!isHidden">{{isHidden?'显示':'隐藏'}}</button>
+		<transition name="rotate">
+			<span class="inline-block height-block" v-if="!isHidden">自定义的动画</span>
+		</transition>		
+		<transition name="custom" enter-active-class="animated rotateIn" leave-active-class="animated rotateOut" >
+			<span class="inline-block" v-if="!isHidden">animate.css动画</span>
+		</transition>
+		<transition appear appear-class="custom-appear" appear-to-class="custom-appear-to" appear-active-class="custom-appear-active">
+			<span class="inline-block">appear的动画</span>
+		</transition>
+	</div>
+<script>
+
+var vm= new Vue({
+  el: '#app',
+  data: {
+    isHidden:true
+  },
+  filters:{
+  	
+  }
+})
+</script>
+</body>
+</html>

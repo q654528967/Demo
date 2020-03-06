@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+  <script src="js/vue-router.js"></script>
+  <script src="js/product_details.js"></script>
+  <script src="js/product_index.js"></script>
+  <script src="js/product_products.js"></script>
+  <script src="js/product_header.js"></script>
+  <script>
+  var routes=[
+  {path:"/",component:index},
+  {path:"/index",component:index},
+  {path:"/detailsg/:lid",component:detailsg,props:true},
+  {path:"/products",component:products},
+  {path:"*",component:{
+    template:`<div><h1>404</h1></div>`
+    //template:`<h1 style="color:red">404:NOT FOUND!</h1>`
+  }}
+];
+/* var routes=[
+    {path:"/",component:index},//默认路径
+    {path:"/index",component:index},
+    {path:"/details",component:details},
+    {path:"/products",component:products},
+    {path:"*",component:{
+      template:`<h1 style="color:red">404:NOT FOUND!</h1>`
+    }}
+  ]; */
+var router=new VueRouter({routes});
+  </script>
+</head>
+<body>
+<div id="app">
+ <my-header></my-header>
+ <router-view></router-view>
+</div>
+<script>
+
+var vm=new Vue({
+  el:"#app",
+  data:{
+    
+  },
+  router
+})
+</script>
+</body>
+</html>

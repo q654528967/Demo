@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <table border="1px">
+    <thead>
+      <tr>
+        <th>名称</th>
+        <th>单价</th>
+        <th>数量</th>
+        <th>小计</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr v-for="ar of arr">
+        <td>{{ar.pname}}</td>
+        <td>{{ar.price.toFixed(2)}}</td>
+        <td>{{ar.count}}</td>
+        <td>{{(ar.price*ar.count).toFixed(2)}}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <tr>
+        <td colspan="4" style="text-align-last: right;">{{total.toFixed(2)}}</td>
+      </tr>
+    </tfoot>
+  </table>
+</div>
+<script>
+var vm=new Vue({
+  el:"#app",
+  data:{
+    arr:[
+      {pname:"iphone x",price:6666,count:2},
+      {pname:"iphone xs",price:8888,count:3},
+      {pname:"iphone xs max",price:9999,count:1}
+    ]
+  },
+  computed:{
+    total(){
+      var sum=0;
+      for(var a of this.arr){
+        sum+=a.price*a.count
+      }
+      return sum;
+    }
+  }
+})
+</script>
+</body>
+</html>

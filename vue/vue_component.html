@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<cus-scr v-model='text' :num='text'></cus-scr>
+    <br>
+    <input type="text" v-model="text">
+	</div>
+<script>
+Vue.component('cus-scr',{
+  props:['value','num'],
+  methods:{
+    handleRest(){
+      console.log('重置为\'\'')
+      this.$emit('input','')
+      console.log(this.num,'num')
+    },
+  },
+  template:`
+    <div>
+      <h2>输入的值为:{{value}}</h2>
+      <button @click="handleRest">重置</button>
+    </div>
+  `
+})
+var vm= new Vue({
+  el: '#app',
+  data: {
+    text:''
+  },
+  methods:{
+  	
+  }
+})
+</script>
+</body>
+</html>

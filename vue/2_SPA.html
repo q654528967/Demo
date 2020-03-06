@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+<script src="js/vue.js"></script>
+<script src="js/vue-router.js"></script>
+<script>
+  //1. 创建各个"页面"组件对象和<template>模板
+  var index={
+    template:"#tplIndex"
+  };
+  var details={
+    template:"#tplDetails"
+  };
+  var products={
+    template:"#tplProducts"
+  };
+  //2. 定义路由字典
+  var routes=[
+    {path:"/",component:index},//默认路径
+    {path:"/index",component:index},
+    {path:"/details",component:details},
+    {path:"/products",component:products},
+    {path:"*",component:{
+      template:`<h1 style="color:red">404:NOT FOUND!</h1>`
+    }}
+  ];
+  //3. 创建路由器对象，将路由字典加入路由器中
+  var router=new VueRouter({routes});
+</script>
+</head>
+<body>
+<template id="tplIndex">
+  <div>
+    这里是首页的主要内容
+  </div>
+</template>
+<template id="tplDetails">
+  <div>
+    这里是详情页的主要内容
+  </div>
+</template>
+<template id="tplProducts">
+  <div>
+    这里是商品列表页面的主要内容
+  </div>
+</template>  
+<div id="app">
+  <h1>这里是index.html</h1>
+  <hr>
+  <router-view></router-view>
+</div>
+<script>
+var vm=new Vue({
+  el:"#app",
+  //4. 将路由器对象加入根组件new Vue中
+  router,
+  data:{
+    
+  }
+})
+</script>
+</body>
+</html>

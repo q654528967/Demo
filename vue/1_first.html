@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <!--2. 引入vue.js-->
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <!--1. 先定义界面View-->
+  <div id="app">
+    <!--用{{变量名}}自动获得数据-->
+    <!--绑定事件： @事件名="函数名"-->
+    <button @click="add">{{n}}</button>
+  </div>  
+  <script>
+    //编写自定义脚本，实现vue功能
+    //3. 创建Vue对象将视图和data绑定起来
+    new Vue({//控制器ViewModel
+      el:"#app",//监控id为app的div的内容
+      //2. 定义模型数据Model支持页面
+      data:{ 
+        n:1 
+      },
+      methods:{
+        add(){//add:function(){}
+          this.n++; 
+        }
+      }
+    })
+  </script>
+</body>
+</html>

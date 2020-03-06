@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/axios.min.js"></script>
+</head>
+<body>
+<script>
+axios.get(
+  "http://localhost:3000/index"
+)
+//result:[{},{},{},{},{},{}]
+.then(function(res){
+  console.log(res.data);
+});
+axios.get(
+  "http://localhost:3000/details",
+  {
+    params:{ lid:5 }
+  }
+)
+//result:{product:{}, specs:[], pics:[] }
+.then(function(res){
+  console.log(res.data);
+});
+</script>
+</body>
+</html>

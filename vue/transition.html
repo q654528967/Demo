@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	.back{
+		background: #0ff;
+		overflow:hidden;
+		height: 100px;
+	}
+		.v-enter,.v-leave-to{
+			opacity: 0
+		}
+		.v-leave-active,.v-enter-active{
+			transition-property: opacity;
+			transition-delay: 100ms;
+			transition-duration: 1s;
+			transition-timing-function: linear;
+		}
+		
+		.translateY-enter,.translateY-leave-to{
+    height: 0;
+    background:#ff0;
+}
+.translateY-enter-to,.translateY-leave{
+  height: 183px;
+  background: #0ff;
+}
+.translateY-enter-active,.translateY-leave-active{
+  transition: height 1s linear;
+}
+		
+	</style>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<button @click="isHidden=!isHidden">{{isHidden?'显示':'隐藏'}}</button>
+		<!-- 默认前缀过渡 -->
+		<transition>
+			<p v-if="!isHidden">使用默认前缀的过渡</p>
+		</transition>
+		<!-- 自定义,transitionName -->
+		<transition :name="transitionName">
+			<div v-if="!isHidden" class="back">使用自定义前缀的过渡,rotate</div>
+		</transition>
+	</div>
+<script>
+
+var vm= new Vue({
+  el: '#app',
+  data: {
+    isHidden:true,
+    transitionName:'translateY'
+  },
+  filters:{
+  	
+  }
+})
+</script>
+</body>
+</html>

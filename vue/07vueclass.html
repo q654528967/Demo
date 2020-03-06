@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+  <style>
+  .nomal{
+    display: none;
+  }
+  .success{
+    background: green;
+    display: inline;
+  }
+  .vali{
+    box-shadow: 5px 5px 5px 5px #555;
+    border-radius: 5px;
+    padding: 5px;
+  }
+  .err{
+    background: red;
+    display: inline;
+  }
+  
+  </style>
+</head>
+<body>
+<div id="app">
+ 密码：<input type="text" @focus="getFocus" @blur="sub" v-model="vali"><span class="vali" :class="sty">{{str}}</span>
+</div>
+<script>
+var vm=new Vue({
+  el:"#app",
+  data:{
+    sty:{
+      nomal:true,
+      success:false,
+      err:false
+    },
+    str:"",
+    vali:""
+  },
+  methods:{
+    getFocus(){
+      console.log(this.vali)
+      this.sty.success=true;
+      this.sty.nomal=false;
+      this.str="6位数字"
+    },
+    sub(){
+      if(/^\d{6}$/.test(this.vali)){
+        this.sty.success=true;
+        this.sty.err=false;
+        this.str="验证通过"
+      }else{
+        this.sty.success=false;
+        this.sty.err=true;
+        this.str="格式错误"
+      }
+    }
+  },
+  watch:{
+    vali(){
+      if(/^\d{6}$/.test(this.vali)){
+        this.sty.success=true;
+        this.sty.err=false;
+        this.str="验证通过"
+      }else{
+        this.sty.success=false;
+        this.sty.err=true;
+        this.str="格式错误"
+    }}
+  }
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+ <h1 v-if="isOnline">welconme dingding |<a @click="outline" href="javascript:">注销</a></h1>
+ <h1 v-else><a href="javascript:">注册</a>|<a @click="login" href="javascript:">登录</a></h1>
+</div>
+<script>
+var vm=new Vue({
+  el:"#app",
+  data:{
+    isOnline:false
+  },
+  methods:{
+    login:function(){
+      this.isOnline=true
+    },
+    outline:function(){
+      this.isOnline=false
+    }
+  }
+})
+</script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <input type="radio" name="sex" value="1" v-model="sex">男<!--sex==value==1  选中-->
+  <input type="radio" name="sex" value="0" v-model="sex">女<!--sex!=value==1  不选中-->
+  <br>
+  <h1>sex:{{sex}}</h1>
+  <hr>
+  <input type="checkbox" v-model="isAgree">同意<br>
+  <h1>isAgree:{{isAgree}}</h1>
+  <hr>
+  <select v-model="orderStatus">
+    <option value="10">未付款</option>
+    <option value="20">已付款</option>
+    <option value="30">已发货</option>
+    <option value="40">已签收</option>
+  </select><br>
+  <h1>orderStatus:{{orderStatus}}</h1>
+</div>
+<script>
+var vm=new Vue({
+  el:"#app",
+  data:{
+    sex:1, isAgree:false, orderStatus:10
+  }
+})//控制台: vm.sex=0
+</script>
+</body>
+</html>

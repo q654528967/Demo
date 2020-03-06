@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.btn{
+			outline: none;
+			border:none;
+			cursor:pointer;
+			padding: 5px 10px
+		}
+		.btn-text{
+			color: #409eff;
+			background: transparent;
+		}
+		.btn-text:hover{
+			color: #66b1ff;
+		}
+		.fly-table{
+			width: 400px;
+			text-align: left;
+			line-height: 42px;
+			border: 1px solid #eee;
+			userSelect:none;
+		}
+	</style>
+	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+</head>
+<body>
+	<div id="app">
+		<h2>Fly Table Component</h2>
+		<button class="btn btn-text" title="点击使数组倒序" @click="handleReverse">倒序</button>
+		<fly-table :fields="fields" :goods="goods">
+			<template slot-scope="{row,col}">
+				<span v-if="col.prop!=='operate">{{row[col.prop]}}</span>
+				<button class="btn btn-text" v-else @click="handleMarked(row)">切换标记</button>
+			</template>
+		</fly-table>
+	</div>
+<script>
+let FlyTable={
+	props:{
+		fields:{
+			type:Array,
+			default(){
+				return []
+			}
+		},
+	goods:{
+		type:Array,
+		default(){
+			return []
+		}
+	}
+	},
+	template: `<table class="fly-table">
+		<tr>
+			<th v-for="(col,cindex) of fields" :key="cindex">
+				{{col.label}}
+			</th>
+		</tr>
+		<tr v-for="(row,rindex) of goods" :key="rindex" :style="{color:row.isMarked? '#ea4335':''}">
+			<td style="border-top:1px solid #eee" v-for="(col,cindex) of fields" :key="cindex">
+				<slot :row="row" :col="col"></slot>
+			</td>
+		<tr>
+		</table>`
+	
+}
+
+var vm = new Vue({
+  el: '#app',
+  components:{FlyTable},
+  data: {
+    fields:[{
+    	label:'名称',
+    	prop:'name',
+    },{
+    	label:'数量',
+    	prop:'quantity'
+    },{
+    	label:'价格',
+    	prop:'price'
+    },{
+    	label:'',
+    	prop:'operate'
+    }],
+    goods:[{
+    	name:'苹果',
+    	quantity:200,
+    	price:6.8,
+    	isMarked:false
+    },{
+    	name:'西瓜',
+    	quantity:50,
+    	price:4.8,
+    	isMarked:false
+    },{
+    	name:'榴莲',
+    	quantity:0,
+    	price:22.8,
+    	isMarked:false
+    }]
+  },
+  methods:{
+  	handleMarked(row){
+  		row.isMarked=!row.isMarked
+  	},
+  	handleReverse(){
+  		this.goods.reverse()
+  	}
+  }
+})
+</script>
+</body>
+</html>

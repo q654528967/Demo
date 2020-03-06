@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/vue.js"></script>
+</head>
+<body>
+  <div id="app">
+    <p v-pre>VUE框架中使用{{模型变量}}的方式绑定元素内容</p>
+    <h1 v-once>页面加载时间:{{now}}</h1>
+    <h1>当前系统时间:{{now}}</h1>
+  </div>
+  <script>
+    var vm=new Vue({
+      el:"#app",
+      data:{
+        now:new Date().toLocaleString()
+      }
+    });
+    setInterval(function(){
+      vm.now=new Date().toLocaleString();
+    },1000)
+  </script>
+</body>
+</html>
