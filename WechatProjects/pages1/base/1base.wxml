@@ -1,0 +1,18 @@
+<!--pages/base/1base.wxml-->
+<text>pages/base/1base.wxml</text>
+<view bindtap="handle2">
+父元素
+  <view bindtap="handle1">子元素</view>
+</view>
+<view catchtap="handle2">
+父元素
+<view catchtap="handle1">
+子元素2
+</view>
+</view>
+<view>{{msg}}</view>
+<view wx:for="{{list}}" wx:key="index">{{item.name}}</view>
+<view>多个判断条件</view>
+<view wx:if="{{age<18}}">少年</view>
+<view wx:elif="{{age<=20}}">青年</view>
+<view wx:else>工作</view>

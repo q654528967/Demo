@@ -1,0 +1,8 @@
+<!--pages/cloud/cloud.wxml-->
+<text>pages/cloud/cloud.wxml</text>
+<button bindtap="insert">添加数据</button>
+<button bindtap="del">删</button>
+<button bindtap="update">改</button>
+<button bindtap="select">查</button>
+<button bindtap="insert1">添加数据_ex</button>
+<button bindtap="update1">更新数据_ex</button>

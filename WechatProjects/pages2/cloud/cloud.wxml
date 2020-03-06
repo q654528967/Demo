@@ -1,0 +1,25 @@
+<!--miniprogram/pages/cloud/cloud.wxml-->
+<text>miniprogram/pages/cloud/cloud.wxml</text>
+<button bindtap="insert">添加数据</button>
+<button bindtap="del">删</button>
+<button bindtap="select">查</button>
+<button bindtap="selectwhere">查</button>
+<view wx:for="{{arr}}" wx:key="index"><text>{{item.name}}</text>:<text bindtap="del" data-id="{{item._id}}">x</text></view>
+<view>
+<view>云函数</view>
+<button bindtap="handleSum">调用云函数</button>
+<view>
+获取登录用户
+<button bindtap="handleLogin">获取</button>
+<button bindtap="handleDel">批量删除</button>
+</view>
+</view>
+<view>云存储</view>
+<button bindtap="upload">上传文件</button>
+<button bindtap="getImage">展示文件</button>
+<view bindtap="myupload">上传并保存再显示</view>
+<view bindtap="myImage">图片显示</view>
+<block wx:for="{{row}}" wx:key="index">
+<image src="{{item.fileID}}"></image><button bindtap="delectImage" data-id="{{item._id}}">del</button>
+</block>
+<view style="width:300rpx;height:600rpx"></view>
