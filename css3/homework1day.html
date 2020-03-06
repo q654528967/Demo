@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+ <head>
+	<meta charset="utf-8">
+	<title>Document</title>
+	<style>
+		#d1{position:relative;
+		left:0px;
+		top:0px;
+		width:1000px;
+		height:400px;
+		margin:0 auto;
+		}
+		#i1{
+		display:block;
+		
+		}
+		#left{position:absolute;
+		left:2px;
+		top:165px;
+		width:35px;
+		height:70px;
+		opacity:0.2;
+		background: url(arrow-left.png) #000 50% no-repeat;
+		}
+		#right{position:absolute;
+		left:963px;
+		top:165px;
+		width:35px;
+		height:70px;
+		opacity:0.2;
+		background: url(arrow-right.png) #000 50% no-repeat;
+		}
+		ul{list-style-type:circle;}
+		div>ul>li{
+		width:12px;
+		height:12px;
+		background:#fff;
+		border:1px solid #fff;
+		border-radius:50%;
+		position:absolute;
+		}
+		#a1{left:465px;top:370px;}
+		#a2{left:490px;top:370px;background:#0aa1ed}
+		#a3{left:510px;top:370px;}
+		#a4{left:530px;top:370px;}
+	</style>
+ </head>
+ <body>
+	<div id="d1">
+		<img src="banner2.png" id="i1">
+		<div id="left"></div>
+		<div id="right"></div>
+		<ul>
+			<li id="a1"><a href="#" ></a></li>
+			<li><a href="#" id="a2"></a></li>
+			<li><a href="#" id="a3"></a></li>
+			<li><a href="#" id="a4"></a></li>
+		</ul>
+	</div>
+	
+ </body>
+</html>

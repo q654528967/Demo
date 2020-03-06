@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	#parent{display:flex;
+		flex-flow:row nowrap;
+		width:800px;height:800px;
+		border:1px solid #f00 ;
+		justify-content:center;
+		align-items:center;
+	}
+	#d1{background:#f00;width:200px;height:200px;order:4;
+	flex-grow:1;
+	}
+	#d2{background:#ff0;width:200px;height:200px;order:2;
+	flex-grow:2;
+	}
+	#d3{background:#0f0;width:200px;height:200px;order:4;
+	flex-grow:3;
+	align-self:baseline;
+	}
+	</style>
+</head>
+<body>
+	<div id="parent">
+		<div id="d1">1</div>
+		<div id="d2">2</div>
+		<div id="d3">3</div>
+	</div>
+</body>
+</html>

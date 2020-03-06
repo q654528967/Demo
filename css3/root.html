@@ -1,0 +1,56 @@
+<!doctyh2e html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewh2ort"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta htth2-equiv="X-UA-Comh2atible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    h1:before{
+        content:counter(mycounter)
+    }
+        h1{
+            counter-increment:mycounter;
+            counter-reset:subcounter
+        }
+        h2:before{
+            content:counter(mycounter) '-' counter(subcounter);
+        }
+        h2{
+            counter-increment:subcounter;
+            counter-reset:subsub
+        }
+        p:before{
+            content:counter(mycounter) '-' counter(subcounter) '-' counter(subsub);
+
+        }
+        p{
+            counter-increment:subsub
+        }
+    </style>
+</head>
+<body>
+    <h1>大标题</h1>
+    <h2>示例文字</h2>
+    <p>3ji</p>
+    <p>3ji</p>
+    <h2>示例文字</h2>
+    <p>3ji</p><p>3ji</p><p>3ji</p>
+    <h2>示例文字</h2>
+    <h1>大标题</h1>
+    <h2>示例文字</h2>
+    <p>3ji</p>
+    <p>3ji</p><p>3ji</p><p>3ji</p><p>3ji</p><p>3ji</p><p>3ji</p>
+    <h2>示例文字</h2>
+    <h2>示例文字</h2>
+    <h2>示例文字</h2>
+    <h2>示例文字</h2>
+    <h2>示例文字</h2>
+    <h1>大标题</h1>
+    <h2>示例文字</h2>
+    <h2>示例文字</h2>
+    <h1>大标题</h1>
+    <h2>示例文字</h2>
+</body>
+</html>
