@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h3>客户端</h3>
+  <button id="btn1">创建连接</button id="btn">
+  <button id="btn2">发送数据</button>
+  <button id="btn3">关闭连接</button>
+<script>
+var btn1=document.getElementById("btn1");
+var btn2=document.getElementById("btn2");
+var btn3=document.getElementById("btn3");
+var ws=null;
+btn1.onclick=()=>{
+  ws=new WebSocket("ws://127.0.0.1:9001");
+  ws.onmessage=(e)=>{
+    console.log(e.data)
+  }
+}
+btn2.onclick=()=>{
+  ws.send(new Date());
+}
+btn3.onclick=()=>{
+  ws.close();
+}
+</script>
+</body>
+</html>

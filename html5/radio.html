@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <div class="container">
+    <audio src="res/bg.mp3" id="audio"></audio>
+    <input type="checkbox" name="" id="input">
+  </div>
+<script>
+var input=document.getElementById("input");
+var audio=document.querySelector("#audio");
+console.log(input.checked);
+input.onclick=function(){
+  if(this.checked){
+  audio.play();
+}else{
+  audio.pause();
+}
+}
+</script>
+</body>
+</html>

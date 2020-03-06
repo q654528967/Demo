@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  #container{
+    position: relative;
+    border:1px solid #ff0;
+    width:860px;
+  }
+  #controls{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    display: none;
+  }
+  #controls img:last-child{
+    display: none;
+  }
+  .ppt{
+    position: absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%,-50%);
+    display: block;
+  }
+  </style>
+</head>
+<body>
+  <div id="container">
+    <video src="res/x.mp4" poster="day01_pm/day01/src/res/p3.png"></video>
+    <div class="ppt">
+      <img src="res/mm.png" alt="" id="im">
+      <div id="controls">
+        <img src="res/play.png" alt="" onclick="xPlay()">
+        <img src="res/pause.png" alt="" onclick="xPause()">
+      </div>
+    </div>
+  </div>
+  <script>
+  var container=document.getElementById("container");
+  var controls=document.getElementById("controls");
+  var x=container.firstElementChild;
+  var img1=controls.firstElementChild;
+  var img2=controls.lastElementChild;
+  var im=document.querySelector("#im");
+  console.log(im)
+  container.addEventListener("mouseenter", mouseEnter);
+  function mouseEnter(){
+    controls.style.display="block";
+  }
+  container.addEventListener("mouseleave",(e)=>{
+    e.preventDefault;
+    controls.style.display="none"
+  })
+  function xPlay(){
+    x.play();
+    img1.style.display="none";
+    img2.style.display="block";
+    im.style.display="none";
+  }
+  function xPause(){
+    x.pause();
+    img1.style.display="block";
+    img2.style.display="none";
+    im.style.display="block";
+  }
+  </script>
+</body>
+</html>

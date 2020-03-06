@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+<script>
+//创建Cat类方法
+class Cat{
+	constructor(name){
+		this.name=name;
+	}
+	set name(name){
+		this._name=name;
+	}
+	get name(){
+		return this._name;
+	}
+	walk(){
+		console.log(this.name+'正在走路')
+	}
+}
+//创建另一个类继承Cat类方法；
+class animal extends Cat{
+	mew(){
+		console.log(this.name+'再叫')
+	}
+}
+var cat1=new Cat('小猫');
+console.log(cat1)
+cat1.walk();
+var cat2=new animal('大猫');
+cat2.walk();
+cat2.mew();
+</script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <img src="res/mm.png" alt=""><img src="res/t.png" alt=""><img src="res/p5.png" alt="">
+  <br>
+  <hr>
+  <br><hr>
+  <br><hr>
+  <br><hr>
+  <br><hr>
+  <br><hr>
+  <br><hr>
+  <img src="res/trash.png" alt="" id="trash">
+<script>
+  var list=document.querySelectorAll("img:not(#trash)")
+  var pid=0;
+  var trash=document.getElementById("trash");
+  trash.ondragover=(e)=>{
+    e.preventDefault();
+  };
+  trash.ondrop=()=>{
+    return true;
+  }
+  for(let item of list){
+    item.ondragend=function(e){
+      let item=this;
+      if(trash.ondrop()==true){
+        item.remove();
+      }
+    }
+  }
+</script>
+</body>
+</html>

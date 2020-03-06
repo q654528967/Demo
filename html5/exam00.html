@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<p><label>选择文件:</label>
+<input type="file" id="file">
+<input type="button" value="读取图像" onclick="readAsDataUrl()">
+<input type="button" value="读取二进制" onclick="readAsbinaryString()">
+<input type="button" value="读取文本文件" onclick="readAsText()">
+</p>
+<div name="result" id="result">
+</div>
+<script>
+var result=document.getElementById("result");
+var files=document.getElementById('file');
+console.log(files.files[0])
+if(typeof FileReader=='undefined'){
+	result.innerHTML='<p>不支持'
+}
+function readAsDataUrl(){
+	var file=files.files[0];
+	var reg=/image\/\w+/;
+	if(!reg.test(file.type)){
+		alert('不是图片')
+		return false;
+	}
+	var reader = new FileReader();
+	console.log(reader)
+	reader.readAsDataURL(file);
+	reader.onload=function(e){
+		result.innerHTML=`<img src="${this.result}">`
+		console.log(this.result)
+	}
+}
+</script>
+</body>
+</html>

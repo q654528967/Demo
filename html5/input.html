@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <video src="res/x.mp4"></video>
+  <input type="text" maxlength="10" minlength="3" required >
+  <meter min="0" max="100000" low="3000" high="90000" optimum="80000" value="90000"></meter>
+  <progress value="1" id="pro"></progress>
+  <br>
+  <br>
+  <form action="#" method="get">
+    <label>年龄<input type="number" min="18" max="50" name="age"></input></label><br>
+    邮箱: <input type="email" name="email"><br>
+    <label>网址: <input type="url" name="url"> </label><br>
+    <input type="submit">
+  </form>
+  <datalist id="list1">
+    <option>12</option>
+    <option>14</option>
+    <option>16</option>
+    <option>17</option>
+    <option>11</option>
+  </datalist>
+  <input type="text" list="list1">
+  <script>
+  var i=0,pro;
+  var pro=document.getElementsByTagName("progress")[0];
+  console.log(pro);
+  var s=setInterval(startP,1000);
+  function startP(){
+    i+=0.1
+    pro.value=i;
+    if(parseInt(i)==1){
+      i=0
+    }
+  }  
+  
+  </script>
+</body>
+</html>

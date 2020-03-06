@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+<button>hhaaa</button>
+<script>
+var w=new Worker("./ex_web_worke.js");
+w.onmessage=function(e){
+  var msg=e.data;
+  console.log("接受Worker:"+msg)
+};
+w.postMessage([1,2,3,4,5])
+</script>
+<button>fjls</button>
+</body>
+</html>

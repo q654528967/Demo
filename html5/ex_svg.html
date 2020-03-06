@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <svg id="s3" width="500" height="400"></svg>
+<script>
+var s3=document.getElementById("s3");
+for(var i=1;i<=30;i++){
+  var c=document.createElementNS("http://www.w3.org/2000/svg","circle");
+  c.setAttribute("cx",Math.floor(Math.random()*500));
+  c.setAttribute("cy",Math.floor(Math.random()*500));
+  c.setAttribute("r",parseInt(Math.random()*50)+10);
+  c.setAttribute("fill-opacity",Math.random())
+  c.setAttribute("fill",`rgb(${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)},${Math.floor(Math.random()*255)})`);
+  s3.appendChild(c);
+  c.onclick=function(){
+    this.onclick=null;
+    var t=setInterval(()=>{
+      var r=this.getAttribute("r");
+      var op=this.getAttribute("fill-opacity");
+      this.setAttribute("r",r*1.05);
+      this.setAttribute("fill-opacity",op*0.8);
+      if(op<0.02){
+        s3.removeChild(this);
+        clearInterval(t)
+      }
+    },200)
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h3>index</h3>
+  <div>
+    <a href="login.html">请登录</a>
+  </div>
+<script>
+var uname=sessionStorage.getItem("uname");
+console.log(uname)
+if(uname){
+  var wel=document.querySelector("a[href]");
+  var ht=`欢迎回来${uname}`;
+  ht+=`<a href="logout.html">退出</a>`;
+  wel.innerHTML=ht;
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  #c3{
+    background-color: #ccc;
+  }
+  </style>
+</head>
+<body>
+  <div>
+
+    <div>
+      <canvas id="c3" width="500" height="400"></canvas>
+    </div>
+    <div>
+      <address></address>
+    </div>
+  </div>
+<script>
+  var c3=document.getElementById("c3");
+  var arr=[{name:"lilei",salary:100},{name:"hanmeimei",salary:200},{name:"king",salary:300}];
+  var ctx=c3.getContext("2d");
+  ctx.textBaseline="bottom";
+  ctx.font="20px 宋体";
+  for(let key in arr){
+    let r=parseInt(Math.random()*255);
+    let g=parseInt(Math.random()*255);
+    let b=parseInt(Math.random()*255);
+    ctx.fillStyle=`rgb(${r},${g},${b})`;
+    ctx.fillRect(50+key*100,400-arr[key].salary,50,arr[key].salary)
+    ctx.fillStyle="#000"
+    ctx.fillText(arr[key].salary,50+key*100,400-arr[key].salary)
+  }
+  ctx.fillText("哈哈",10,10);
+  ctx.fillText
+</script>
+</body>
+</html>

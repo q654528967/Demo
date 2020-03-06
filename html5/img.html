@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    body{
+      text-align:center;
+    }
+    canvas{
+      background-color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <canvas id="c3"></canvas>  
+<script>
+  var c3=document.getElementById('c3');
+  c3.width=500;
+  c3.height=400;
+  var ctx=c3.getContext("2d");
+  var p3=new Image();
+  p3.src="./res/mm.png";
+  p3.onload=function(){
+    ctx.drawImage(p3,0,0,256*2,192*2)
+  }
+</script>
+</body>
+</html>

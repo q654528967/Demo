@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  #c2{
+    cx:50;
+  }
+  </style>
+</head>
+<body>
+  <svg id="s3" width="500" height="400">
+    <circle cx="250" cy="200" r="100" fill="#ff0" fill-opacity="0.2" stroke="blue" stroke-width="10"></circle>
+    <circle id="c2"  ct="50" r="25" fill="red"></circle>
+  </svg>
+<script>
+var c3=document.createElementNS("http://www.w3.org/2000/svg","circle");
+c3.setAttribute("cx",450);
+c3.setAttribute("cy",300);
+c3.setAttribute("r",50);
+c3.setAttribute("fill","#000");
+document.getElementById("s3").appendChild(c3);
+</script>
+</body>
+</html>

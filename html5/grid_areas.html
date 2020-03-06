@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	div{
+		border:1px solid red;
+	}
+		.container{
+			display: grid;
+			grid-template-rows:1fr 1fr 1fr 1fr ;
+			grid-template-columns: 1fr 1fr 1fr ;
+			grid-template-areas:
+				"header header header"
+				"aside nav nav"
+				"aside content1 content2"
+				"footer footer footer"
+			;
+			grid-gap:3px;
+		}
+		.header{
+			grid-area:header;
+		}
+		.nav{
+			grid-area:nav;
+		}
+		.content1{
+			grid-area:content1;
+		}
+		.content2{
+			grid-area:content2;
+		}
+		.aside{
+			grid-area:aside;
+		}
+		.footer{
+			grid-area:footer;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+	<div class="header">header</div>
+	<div class="nav">nav</div>
+	<div class="content1">content1</div>
+	<div class="content2">content2</div>
+	<div class="aside">aside</div>
+	<div class="footer">footer</div>
+</div>
+</body>
+</html>

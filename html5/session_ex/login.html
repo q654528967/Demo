@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <form action="#">
+    用户名：<input type="text"><br>
+    密码：<input type="password"><br>
+    <input type="button" id="btn" value="登录">
+  </form>
+<script>
+var btn=document.getElementById("btn");
+var uname=document.querySelector("input[type=text]");
+btn.onclick=()=>{
+  sessionStorage.setItem("uname",uname.value);
+  alert("ok");
+  setTimeout(()=>{
+    location.href="index.html"
+  },3000)
+}
+</script>
+</body>
+</html>

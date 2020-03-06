@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h3>请输入</h3>
+  <input type="text">
+  <button onclick="postmsg()">提交</button>
+  <div>值</div>
+  <script>
+    var w=new Worker("./ex02_worker.js");
+    var val=document.getElementsByTagName("input")[0];
+    var div=document.getElementsByTagName("div")[0];
+    function postmsg(){
+      w.postMessage(val.value);
+      w.onmessage=function(e){
+        console.log(e.data)
+      div.innerHTML=e.data;
+    }
+    }
+    w.onmessage=function(e){
+        console.log(e.data)
+      div.innerHTML=e.data;
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+<script src="res/echarts-en.common.js"></script>
+</head>
+<body>
+  <div style="width: 500px;height: 500px;" id="main"></div>
+  <div style="width: 500px;height: 500px;" id="box"></div>
+<script>
+var main=document.getElementById('main');
+var myEcharts=echarts.init(main);
+var option={
+  tile:{text:"曲线统计图"},
+  xAxis:{data:["c+","java","js","php"],type:'category'},
+  yAxis:{},
+  series:{type:"line",data:[50,20,1,7],smooth:true}
+};
+myEcharts.setOption(option);
+var box=document.getElementById("box");
+var mycharts=echarts.init(box);
+var boxOption={
+  title:{text:'饼状统计图'},
+  toolbox: {
+        show: true,
+        feature: {
+            dataZoom: {
+                yAxisIndex: 'none'
+            },
+            dataView: {readOnly: false},
+            magicType: {type: ['line', 'bar']},
+            restore: {},
+            saveAsImage: {}
+        }
+    },
+  series:[{
+    type:'pie',
+    radius:"50%",
+    center:"center",
+    data:[
+      {value:123,name:"java"},
+      {value:123,name:"c"},
+      {value:123,name:"c++"},
+    ]
+  }]
+  
+};
+mycharts.setOption(boxOption);
+</script>
+</body>
+</html>
