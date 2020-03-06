@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+</head>
+<body>
+  <div id="example"></div>
+<script type="text/babel">
+  var MyButton=React.createClass({
+    click(){
+      console.log(1)
+      this.props.func('sb')
+    },
+    render:function(){
+      return <button onClick={this.click}>
+      {this.props.btnName}
+      </button>
+    }
+  })
+  var MyForm=React.createClass({
+    handleSubmit:function(e){
+      e.preventDefault();
+      console.log(111)
+    },
+    handleReg(name){
+      console.log(1+name)
+    },
+    handleLog(name){
+      console.log(2+name)
+    },
+    render:function(){
+      return <form onSubmit={this.handleSubmit}>
+      <MyButton btnName="登录" func={this.handleLog}></MyButton>
+      <MyButton btnName="注册" func={this.handleReg}></MyButton>
+      </form>
+    }
+  })
+  ReactDOM.render(
+    <MyForm></MyForm>,
+    document.getElementById('example')
+  )
+</script>
+</body>
+</html>

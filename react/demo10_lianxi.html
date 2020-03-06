@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+</head>
+<body>
+  <div id="example"></div>
+<script type="text/babel">
+var MyList=React.createClass({
+  getInitialState(){
+    return {list:[]}
+  },
+  add(){
+    let list=this.state.list;
+    list.push(this.refs.text.value);
+    this.setState({list})
+  },
+  render:function(){
+    return <div> 
+    <input ref="text" type="text" />
+    <button onClick={this.add}> add </button>
+    <ul>
+    {this.state.list.map((value,index)=>{
+      return <li key={index}>{value}</li>
+    })}
+    </ul>
+    </div>
+  }
+})
+ReactDOM.render(<MyList></MyList>,document.getElementById("example"))
+</script>
+</body>
+</html>

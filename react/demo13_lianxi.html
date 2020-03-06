@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+</head>
+<body>
+  <div id="example"></div>
+<script type="text/babel">
+  var MyTest=React.createClass({
+    myTime:null,
+    componentDidMount(){
+      console.log("did")
+      console.log(this.state.opcity)
+      this.myTime= setInterval(() => {
+        let opcity=this.state.opcity;
+        if(opcity>1) opcity=0;
+        opcity+=0.1;
+        this.setState({opcity})
+        console.log(this.state.opcity)
+      }, 1000);
+    },
+    componentWillUnmount(){
+      clearInterval(this.myTime)
+    },
+    getInitialState(){
+      return {opcity:0}
+    },
+    
+    render(){
+      return <h1 style={{opacity:this.state.opcity}}>hh</h1>
+    }
+  })
+  ReactDOM.render(
+    <MyTest></MyTest>,
+    document.getElementById('example')
+  )
+</script>
+</body>
+</html>

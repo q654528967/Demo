@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="js/react.js"></script>
+  <script src="js/react-dom.js"></script>
+  <script src="js/browser.min.js"></script>
+</head>
+<body>
+  <div id="example"></div>
+<script type="text/babel">
+var MyForm= React.createClass({
+  handleClick(){
+  console.log(this.refs.myInput.value) 
+  },
+  render:function(){
+    return <div>
+    <input ref="myInput" type="text"/>
+    <button onClick={this.handleClick}>clickMe</button>
+    </div>
+  }
+})
+var MyPage=React.createClass({
+  handleTest(){
+    console.log(this.refs.com)
+  },
+  render:function(){
+    return <div>
+    <MyForm ref="com"></MyForm>
+    <button onClick={this.handleTest}>test</button>
+    </div>
+  }
+})
+ReactDOM.render(<MyPage></MyPage>,document.getElementById("example"))
+</script>
+</body>
+</html>
