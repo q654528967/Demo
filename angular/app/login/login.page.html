@@ -1,0 +1,43 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="返回"></ion-back-button>
+    </ion-buttons>
+    <ion-title>个人中心</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div class="myfixed">
+    <p>测试账号:dingding</p>
+    <p>密码:123456</p>
+  </div>
+  <div *ngIf="isLogin else logout">
+    <div class="loginImg">
+      <img style="border-radius:50%;" src="http://pic.qqtn.com/up/2019-11/2019111908374581038.jpg">
+    </div>
+      <ion-item>
+        <ion-input type="text" placeholder="请输入用户名" [(ngModel)]="uname"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input type="password" placeholder="请输入密码" [(ngModel)]="upwd"></ion-input>
+      </ion-item>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="6"><ion-button>忘记密码</ion-button></ion-col>
+        <ion-col size="6" style="text-align: end;"><ion-button>免费注册</ion-button> </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-button color="danger" (click)="doLogin()" expand="block">
+      登录
+    </ion-button>
+  </div>
+  <ng-template #logout>
+    <div class="logout">
+      <div>
+        <img style="border-radius:50%;" src="http://pic.qqtn.com/up/2019-11/2019111908374581038.jpg">
+      </div>
+      <p>{{lname}}</p>
+      <ion-button (click)="uLogout()" expand="block" color="danger">退出登录</ion-button>
+    </div>
+  </ng-template>
+</ion-content>

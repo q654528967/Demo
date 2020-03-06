@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>首页</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar placeholder="搜索商品" inputmode="email" type="decimal" (ionChange)="onSearchChange($event)" [debounce]="250"></ion-searchbar>
+  <div class="swiper-container">
+    <ion-slides mode="md" pager="true" id=slides1 [options]="slideOpts" *ngIf="carouselItems.length>0">
+      <ion-slide *ngFor="let list of carouselItems" >
+        <img style="width: 100%;" [src]="list.img" alt="">
+      </ion-slide>
+    </ion-slides>
+    <div class="swiper-button-prev" (click)="prev()"></div>
+    <div class="swiper-button-next" (click)="next()"></div>
+  </div>
+  
+  <ion-text color="medium">
+    <h5>新品上市</h5>
+  </ion-text>
+  <ion-slides class="" mode="md" scrollbar="true" [options]="slideOp" *ngIf="newArrialItems.length>0">
+    <ion-slide *ngFor="let tmp of newArrialItems">
+      <ion-card>
+        <ion-card-content>
+          <div>
+            <img [src]="tmp.pic" style=" width:auto;height:12.060vh;margin: auto;">
+          </div>
+          <ion-label>
+            <p style="height: 2em;text-overflow:ellipsis">{{tmp.title}}</p>
+          </ion-label>
+        </ion-card-content>
+      </ion-card>
+    </ion-slide>
+  </ion-slides>
+  <ion-text color="medium">
+    <h3>推荐商品</h3>
+  </ion-text>
+  <ion-list *ngIf="recommendedItems.length>0">
+    <ion-item *ngFor="let item of recommendedItems" [routerLink]="'/detail/'+item.href.substring(25)">
+      <ion-thumbnail slot="start">
+        <div>
+          <img [src]="item.pic" style="width: 100%;"/>
+        </div>
+      </ion-thumbnail>
+      <ion-text color="medium">
+        <h4>{{ item.title }}</h4>
+        <h6>{{ item.details }}</h6>
+      </ion-text>
+      <ion-button fill="clear" expand="block" [routerLink]="'/detail'">
+        <ion-icon slot="end" name="cart" color="medium"></ion-icon>
+      </ion-button>
+    </ion-item>
+  </ion-list>
+  
+</ion-content>

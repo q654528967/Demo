@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button text="返回"></ion-back-button>
+    </ion-buttons>
+    <ion-title>detail</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-slides mode="md" pager="true" [options]="slideOpts" *ngIf="picList">
+    <ion-slide *ngFor="let list of picList" >
+      <img [src]="list.md" alt="">
+    </ion-slide>
+  </ion-slides>
+  <h3>{{details.title}}</h3>
+  <ion-text color="danger">
+    <h5>{{details.subtitle}}</h5>
+    <h3>￥{{price.toFixed(2)}}</h3>
+  </ion-text>
+  <div [innerHTML]="detail"></div>
+  
+</ion-content>
+<ion-footer>
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col size="2">
+        <ion-button fill="clear" color="dark" (click)="go404()">
+          <ion-icon name="heart"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button fill="clear" color="dark" (click)="goCart()">
+          <ion-icon name="cart"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="2">
+        <ion-button fill="clear" color="dark" (click)="go404()">
+          <ion-icon name="bookmark"></ion-icon>
+        </ion-button>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button  expand="block" id="b1" color="danger" (click)="addCart()">
+          加入购物车
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

@@ -1,0 +1,6 @@
+<p>
+  demo06-modle works!
+</p>
+<input type="text" [(ngModel)]="uname" (ngModelChange)="handleChange()">
+<button (click)="addList()">add</button>
+<p *ngFor="let tmp of lists">{{tmp}}</p>

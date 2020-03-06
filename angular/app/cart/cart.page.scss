@@ -1,0 +1,18 @@
+.align-text-middle {
+  display: flex;
+  align-items: center;
+}
+ion-header ion-title{
+  text-align: center;
+}
+.mytitle{
+  line-height: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.mySetBu{
+button{
+  background: none;
+}
+}

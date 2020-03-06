@@ -1,0 +1,16 @@
+<p>
+  demo04-dor works!
+</p>
+<ul>
+  <ng-container *ngFor="let tmp of stuList">
+    <li *ngIf="tmp.score>80">{{tmp.name}}</li>
+  </ng-container>
+</ul>
+<div [ngSwitch]="true">
+  <p *ngSwitchCase="myScore>=90">优秀</p>
+  <p *ngSwitchCase="myScore>=80 && myScore<90"> 良好</p>
+  <p *ngSwitchCase="myScore>=70 && myScore<80">及格</p>
+  <p *ngSwitchDefault>不及格</p>
+</div>
+<button (click)="handleClick()">clickMe</button>
+<img [src]="myImgUrl" alt="">

@@ -1,0 +1,84 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-header>
+      <ion-toolbar>
+        <ion-buttons slot="start">
+          <ion-back-button text="返回"></ion-back-button>
+        </ion-buttons>
+        <ion-title>购物车</ion-title>
+      </ion-toolbar>
+    </ion-header>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngIf="data.length==0;else tem2">
+    <div style="text-align:center" class="ion-margin-horizontal">
+      <img src="../../assets/img/404/404_img2.png">
+      <h3>购物车是空的</h3>
+      <ion-button color="success" expand="block">
+        去逛逛
+      </ion-button>
+    </div>
+  </ng-container>
+  <ng-template #tem2>
+    <div>
+      <ion-card *ngFor="let tem of data">
+        <ion-grid fixed>
+          <ion-row>
+            <ion-col size="2" class="align-text-middle">
+              <ion-checkbox color="danger" solt="center" [(ngModel)]="tem.isSelected" (ngModelChange)="oChange()"></ion-checkbox>
+            </ion-col>
+            <ion-col size="3" class="align-text-middle">
+              <img [src]="tem.pic" alt="">
+            </ion-col>
+            <ion-col size="7">
+              <ion-text>
+                <ion-card-header class="ion-no-padding">
+                  <p class="mytitle">
+                    {{ tem.title }}
+                  </p>
+                </ion-card-header>
+                <ion-card-content class="ion-no-padding">
+                  <ion-grid>
+                    <ion-row class="ion-margin">
+                      <p>{{tem.spec}}</p>
+                    </ion-row>
+                    <ion-row>
+                      <ion-col size="6">￥{{tem.price}}</ion-col>
+                      <ion-col size="6">
+                        <ion-row class="mySetBu">
+                          <button>-</button>
+                          {{tem.count}}
+                          <button>+</button>
+                        </ion-row>
+                      </ion-col>
+                    </ion-row>
+                  </ion-grid>
+                </ion-card-content>
+              </ion-text>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </ion-card>
+    </div>
+    
+  </ng-template>
+</ion-content>
+<ion-footer *ngIf="data.length>0">
+  <ion-grid fixed>
+    <ion-row>
+      <ion-col class="align-text-middle">
+        <ion-checkbox color="danger" [(ngModel)]="allSelect" (ngModelChange)="allSel()"></ion-checkbox>
+      </ion-col>
+      <ion-col class="align-text-middle">
+        本次消费{{calcAll()}}
+      </ion-col>
+      <ion-col class="align-text-middle">
+        <ion-button>
+          去结算
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-footer>

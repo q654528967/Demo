@@ -1,0 +1,23 @@
+.loginImg{
+  width: 33%;  
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border:0px;
+}
+.logout{
+  text-align: center;
+  div:first-child{
+    width: 40vw;
+    height: 40vw;
+    margin:auto;
+    padding-top: 2vw;
+  }
+}
+ion-header ion-title{
+  text-align: center;
+}
+.myfixed{
+  position: fixed;
+}
