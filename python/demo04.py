@@ -1,0 +1,8 @@
+myAge=input('年龄')
+myScore=input('成绩')
+myAddr=input('地址')
+myName=input('名字')
+print(type(myName))
+print(type(myScore))
+print(type(myAge))
+print(type(myAddr))

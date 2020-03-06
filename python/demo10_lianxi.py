@@ -1,0 +1,13 @@
+myDict={}
+myDict['myList']=[100,200,300]
+myDict['myMuple']=(1,2,3)
+myDict['myDict']={'hehe':'sh','aa':'cc'}
+print(myDict)
+myDict.pop('myDict')
+print(myDict)
+newList=myDict.get('myList')
+newList.append(400)
+myDict['myList']=newList
+print(myDict)
+myDict['myList'].append(500)
+print(myDict)

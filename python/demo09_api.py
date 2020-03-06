@@ -1,0 +1,9 @@
+myTuple=(100,200)
+print(len(myTuple))
+#dict
+myDict={'name':'lucy','age':20}
+myDict['score']=50
+myValues=list(myDict.values()) 
+print(myValues)
+myKeys=list(myDict.keys())
+print(myKeys)
